@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+"""Lists all states starting with N."""
+
 import MySQLdb
 import sys
 
@@ -26,4 +29,4 @@ if __name__ == "__main__":
 
     cursor.close()
     db.close()
-    
+
