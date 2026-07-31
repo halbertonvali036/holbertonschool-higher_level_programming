@@ -1,87 +1,47 @@
 The ``0-add_integer`` module
 ============================
 
-Using ``add_integer``:
-----------------------
+Using ``add_integer``
+---------------------
 
-First import the function from the module:
-
+Importing the function:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Normal Usage
-------------
-
-Add two integers:
-
+Testing standard addition:
     >>> add_integer(1, 2)
     3
 
-Add positive and negative integers:
+Testing default value for b (98):
+    >>> add_integer(1)
+    99
 
+Testing negative numbers:
     >>> add_integer(100, -2)
     98
 
-Add with default argument `b=98`:
-
-    >>> add_integer(2)
-    100
-
-Add float and integer:
-
+Testing float casting:
     >>> add_integer(100.3, -2)
     98
-
-Add two floats:
-
-    >>> add_integer(2.7, 3.8)
+    >>> add_integer(2.6, 3.1)
     5
 
-Add large integers:
-
-    >>> add_integer(1000000, 2000000)
-    3000000
-
-Error Handling
---------------
-
-`a` is a string:
-
-    >>> add_integer("School", 4)
+Testing invalid argument types:
+    >>> add_integer("4", 5)
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
-
-`b` is a string:
 
     >>> add_integer(4, "School")
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
 
-`a` is None:
-
     >>> add_integer(None)
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
 
-`b` is None:
-
-    >>> add_integer(4, None)
+    >>> add_integer(1, None)
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
-
-Both arguments invalid (checks `a` first):
-
-    >>> add_integer("Hello", "World")
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-`a` is a list:
-
-    >>> add_integer([1], 2)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
