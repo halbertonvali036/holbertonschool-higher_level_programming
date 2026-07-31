@@ -1,0 +1,69 @@
+Trying:
+    BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Expecting nothing
+ok
+Trying:
+    bg = BaseGeometry()
+Expecting nothing
+ok
+Trying:
+    bg.area()
+Expecting:
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+ok
+Trying:
+    bg.integer_validator("my_int", 12)
+Expecting nothing
+ok
+Trying:
+    bg.integer_validator("width", 89)
+Expecting nothing
+ok
+Trying:
+    bg.integer_validator("name", "John")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+ok
+Trying:
+    bg.integer_validator("age", 0)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0
+ok
+Trying:
+    bg.integer_validator("distance", -4)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: distance must be greater than 0
+ok
+Trying:
+    bg.integer_validator("distance", 4.5)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: distance must be an integer
+ok
+Trying:
+    bg.integer_validator("distance", True)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: distance must be an integer
+ok
+Trying:
+    bg.integer_validator(12, 12)
+Expecting nothing
+ok
+Trying:
+    bg.integer_validator("n", None)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: n must be an integer
+ok
