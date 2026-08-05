@@ -1,84 +1,57 @@
 The ``4-print_square`` module
 =============================
 
-Using ``print_square``:
+Using ``print_square``
 ----------------------
 
-First import the function from the module:
-
+Importing the function:
     >>> print_square = __import__('4-print_square').print_square
 
-Normal Usage
-------------
-
-Print a 4x4 square:
-
+Normal case (size 4):
     >>> print_square(4)
     ####
     ####
     ####
     ####
 
-Print a 1x1 square:
+Normal case (size 2):
+    >>> print_square(2)
+    ##
+    ##
 
+Size is 1:
     >>> print_square(1)
     #
 
-Print a 0x0 square (prints nothing):
-
+Size is 0 (should print nothing):
     >>> print_square(0)
 
-Print a large square:
+Size is not an integer (string):
+    >>> print_square("3")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
-    >>> print_square(6)
-    ######
-    ######
-    ######
-    ######
-    ######
-    ######
+Size is not an integer (float):
+    >>> print_square(3.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
-Error Handling
---------------
-
-`size` is a negative integer:
-
+Size is less than 0 (negative integer):
     >>> print_square(-1)
     Traceback (most recent call last):
         ...
     ValueError: size must be >= 0
 
-`size` is a float:
-
-    >>> print_square(2.5)
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
-
-`size` is a negative float:
-
+Size is a float and less than 0:
     >>> print_square(-1.5)
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
 
-`size` is a string:
-
-    >>> print_square("4")
+Missing argument:
+    >>> print_square()
     Traceback (most recent call last):
         ...
-    TypeError: size must be an integer
-
-`size` is None:
-
-    >>> print_square(None)
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
-
-`size` is a list:
-
-    >>> print_square([4])
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
+    TypeError: print_square() missing 1 required positional argument: 'size'

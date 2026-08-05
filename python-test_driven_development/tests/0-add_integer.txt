@@ -4,39 +4,18 @@ The ``0-add_integer`` module
 Using ``add_integer``
 ---------------------
 
-Importing the function:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Testing standard addition:
     >>> add_integer(1, 2)
     3
 
-Testing default value for b (98):
-    >>> add_integer(1)
-    99
-
-Testing negative numbers:
-    >>> add_integer(100, -2)
-    98
-
-Testing float casting:
     >>> add_integer(100.3, -2)
     98
-    >>> add_integer(2.6, 3.1)
-    5
 
-Testing invalid argument types:
-    >>> add_integer("4", 5)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+    >>> add_integer(2)
+    100
 
-    >>> add_integer(4, "School")
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
-
-    >>> add_integer(None)
+    >>> add_integer("School", 2)
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
@@ -45,3 +24,13 @@ Testing invalid argument types:
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+
+    >>> add_integer(float('inf'), 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
