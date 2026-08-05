@@ -1,21 +1,9 @@
 #!/usr/bin/node
+const args = process.argv.slice(2).map(Number);
 
-if (process.argv.length <= 3) {
+if (args.length < 2) {
   console.log(0);
 } else {
-  const numbers = process.argv.slice(2).map(Number);
-
-  let biggest = numbers[0];
-  let second = numbers[0];
-
-  for (const num of numbers) {
-    if (num > biggest) {
-      second = biggest;
-      biggest = num;
-    } else if (num > second && num !== biggest) {
-      second = num;
-    }
-  }
-
-  console.log(second);
+  const sortedUnique = [...new Set(args)].sort((a, b) => b - a);
+  console.log(sortedUnique.length > 1 ? sortedUnique[1] : 0);
 }
